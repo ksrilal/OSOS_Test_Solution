@@ -4,21 +4,26 @@ namespace OSOS_Test_Solution.Services
 {
     public class WordTransformService : IWordTransformService
     {
+        private readonly IWordTransformProcessor _wordTransformProcessor;
+
+        public WordTransformService(IWordTransformProcessor wordTransformProcessor) 
+        {
+            _wordTransformProcessor = wordTransformProcessor;
+        }
+
         public string Transform(string word)
         {
-            IWordTransformProcessor wordTransformProcessor = new WordTransformProcessor();
-
             //reverse order
-            word = wordTransformProcessor.ReverseOrder(word);
+            word = _wordTransformProcessor.ReverseOrder(word);
 
             //vowels to lowercase
-            word = wordTransformProcessor.ConvertVowelsToLowercase(word);
+            word = _wordTransformProcessor.ConvertVowelsToLowercase(word);
 
             //consonants to uppercase
-            word = wordTransformProcessor.ConvertConsonantsToUppercase(word);
+            word = _wordTransformProcessor.ConvertConsonantsToUppercase(word);
 
             //ignore numbers
-            word = wordTransformProcessor.IgnoreNumbers(word);
+            word = _wordTransformProcessor.IgnoreNumbers(word);
 
             return word;
         }
