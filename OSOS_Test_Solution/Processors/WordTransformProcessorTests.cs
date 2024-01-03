@@ -4,7 +4,7 @@ namespace OSOS_Test_Solution.Processors
 {
     public class WordTransformProcessorTests
     {
-        private readonly WordTransformProcessor _wordTransformProcessor;
+        private readonly IWordTransformProcessor _wordTransformProcessor;
 
         public WordTransformProcessorTests()
         {

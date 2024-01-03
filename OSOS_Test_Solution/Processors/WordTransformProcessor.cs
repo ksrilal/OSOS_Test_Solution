@@ -6,10 +6,7 @@ namespace OSOS_Test_Solution.Processors
     {
         public string ConvertConsonantsToUppercase(string word)
         {
-            if (string.IsNullOrEmpty(word))
-            { 
-                return string.Empty;
-            }
+            word = HandleNull(word);
 
             bool IsConsonant(char c)
             {
@@ -38,10 +35,7 @@ namespace OSOS_Test_Solution.Processors
 
         public string ConvertVowelsToLowercase(string word)
         {
-            if (string.IsNullOrEmpty(word))
-            {
-                return string.Empty;
-            }
+            word = HandleNull(word);
 
             char[] charArray = word.ToCharArray();
 
@@ -67,20 +61,24 @@ namespace OSOS_Test_Solution.Processors
 
         public string IgnoreNumbers(string word)
         {
-            if (string.IsNullOrEmpty(word))
-            {
-                return string.Empty;
-            }
+            word = HandleNull(word);
             return Regex.Replace(word, @"\d", "");
         }
 
         public string ReverseOrder(string word)
         {
+            word = HandleNull(word);
+            return new string(word.Reverse().ToArray());
+        }
+
+        private string HandleNull(string word)
+        {
             if (string.IsNullOrEmpty(word))
             {
                 return string.Empty;
             }
-            return new string(word.Reverse().ToArray());
+            return word;
         }
+
     }
 }
