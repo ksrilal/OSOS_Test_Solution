@@ -5,7 +5,7 @@ namespace OSOS_Test_Solution.Processors
 {
     public class WordTransformProcessor : IWordTransformProcessor
     {
-        public readonly HashSet<char> vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
+        private readonly HashSet<char> vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
 
         public string ConvertConsonantsToUppercase(string word)
         {
